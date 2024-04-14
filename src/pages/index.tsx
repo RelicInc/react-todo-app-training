@@ -15,13 +15,14 @@ const Index: NextPage = () => {
     setTodoText(event.currentTarget.value);
   };
 
+  const newTask: Task = {
+    id: (allTaskList[0]?.id ?? 0) + 1,
+    value: todoText,
+    status: 'TODO',
+  };
+
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const newTask: Task = {
-      id: (allTaskList[0]?.id ?? 0) + 1,
-      value: todoText,
-      status: 'TODO',
-    };
     setAllTaskList([newTask, ...allTaskList]);
     setTodoText('');
   };
